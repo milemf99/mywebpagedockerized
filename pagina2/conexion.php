@@ -1,8 +1,12 @@
-<?php 
+<?php
+$host = getenv('DB_HOST');
+$user = getenv('DB_USER');
+$password = getenv('DB_PASSWORD');
+$dbName = getenv('DB_NAME'); 
 $nombre = $_POST['nombre'];
 $pass = $_POST['password'];
 
-$con = mysqli_connect("localhost","root","","usuarios");
+$con = mysqli_connect($host, $user, $password, $dbName);
 $query = "select * from clientes where username='".$nombre."' and contra='".$pass."'";
 
 if($con){
